@@ -2,7 +2,7 @@ let img;
 
 function setup() {
   createCanvas(540, 540);
-  img = loadImage('assets/people.jpg');
+  img = loadImage('../people.jpg');
 }
 
 function draw() {
