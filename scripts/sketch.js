@@ -16,7 +16,7 @@ function preload() {
                  'Authorization': 'KakaoAK 687ea12e4ef2be02334d085696877d60'
                },
       form: {
-                'file'='@people.jpg'
+                'file':'@../assets/people.jpg'
             }
     },
     function(res) {
