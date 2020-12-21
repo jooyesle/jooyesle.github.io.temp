@@ -7,21 +7,15 @@ function setup() {
   function postRequest() { 
    
   // Do a POST request to the test API 
-  let api_url = 'https://reqres.in/api/users'; 
+  let api_url = 'https://cv-api.kakaobrain.com/pose/job'; 
    
   // Example POST data 
-  let postData = { id: 1, name: "Sam", 
-                  email: "sam@samcorp.com" }; 
+  let postData = { Content-Type: multipart/form-data,
+                  Authorization: KakaoAK 687ea12e4ef2be02334d085696877d60, 
+                  file: ../assets/people.jpg }; 
    
   httpPost(api_url, 'json', postData, function (response) { 
-    text("Data returned from API", 20, 100); 
-   
-    text("The ID in the data is: "
-         + response.id, 20, 140); 
-    text("The Name in the data is: " 
-         + response.name, 20, 160); 
-    text("The Email in the data is: " 
-         + response.email, 20, 180); 
+    console.log(response.area); 
   }); 
 } 
 }
