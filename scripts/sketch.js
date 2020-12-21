@@ -12,6 +12,7 @@ function setup() {
 
   request.onload = function () {
     // Begin accessing JSON data here
+    console.log(request.responseText);
   }
 }
 
