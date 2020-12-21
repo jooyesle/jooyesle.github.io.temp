@@ -1,5 +1,4 @@
 Kakao.init('8a6779cc3d79dd1ad16ddddf9478fc29');
-Kakao.isInitialized();
 
 function sendLink() {
     Kakao.Link.sendDefault({
