@@ -16,7 +16,7 @@ function preload() {
   request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   request.setRequestHeader('Authorization', 'KakaoAK 687ea12e4ef2be02334d085696877d60');
   
-  request.send('img_url=../assets/people.jpg');
+  request.send('img_url=http://jooyesle.github.io/assets/people.jpg');
 }
 
 
