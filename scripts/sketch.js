@@ -22,6 +22,6 @@ function preload() {
 
 function draw() {
     image(img, 0, 0);
-    console.log('LOADING: ', request.status);
+    console.log('LOADING: ', request.response);
   
 }
