@@ -12,7 +12,7 @@ function preload() {
     {
       method: 'POST',
       // Other Request options, like special headers for apis
-      headers: { 'Access-Control-Allow-Origin': 'no-cors',
+      headers: { 
                  'Content-Type': 'multipart/form-data',
                  'Authorization': 'KakaoAK 687ea12e4ef2be02334d085696877d60'
                },
