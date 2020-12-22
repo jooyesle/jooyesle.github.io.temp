@@ -15,7 +15,7 @@ function preload() {
   request.setRequestHeader('Access-Control-Allow-Methods', 'POST'); 
   request.setRequestHeader('Content-Type', 'multipart/form-data');
   request.setRequestHeader('Authorization', 'KakaoAK 687ea12e4ef2be02334d085696877d60');
-  request.send('file=@../assets/people.jpg');
+  request.send('file=@people.jpg');
   
 }
 
