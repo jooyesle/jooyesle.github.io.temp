@@ -17,7 +17,7 @@ function preload() {
   request.setRequestHeader('Authorization', 'KakaoAK 687ea12e4ef2be02334d085696877d60');
   
   let formdata = new FormData();
-  formdata.append('image', document.getElementById('source_img').files[0], 'people.jpg');
+  formdata.append('image', document.getElementById('source_img').files[0], document.getElementById('source_img').files[0].name);
   request.send(formdata);
 }
 
