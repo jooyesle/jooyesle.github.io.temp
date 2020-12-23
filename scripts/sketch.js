@@ -44,13 +44,13 @@ function draw() {
       }
 
       for(let i = 0 ; i < 17 ; i++){
-        ellipse(arr[3*i], arr[3*i+1], 10, 10);
-        console.log(arr[3*i]);
+        ellipse(arr[3*i].value, arr[3*i+1].value, 10, 10);
+        //console.log(arr[3*i]);
       }
       
        for(let i = 0 ; i < 19 ; i++){
-         line(parseFloat(arr[3 * skeleton[i][0]]), parseFloat(arr[3 * skeleton[i][0] + 1]),
-              parseFloat(arr[3 * skeleton[i][1]]), parseFloat(arr[3 * skeleton[i][1] + 1]));
+         line(arr[3 * skeleton[i][0]].value, arr[3 * skeleton[i][0] + 1].value,
+              arr[3 * skeleton[i][1]].value, arr[3 * skeleton[i][1] + 1].value);
        }
     }
   }
