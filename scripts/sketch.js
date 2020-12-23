@@ -39,7 +39,7 @@ function draw() {
       fill(random(255), random(255), random(255));
       
       let arr =[];
-      for(let val in Object.values(result[key].keypoints)){
+      for(let val in Object.keys(result[key].keypoints)){
         arr.push(val);
       }
 
