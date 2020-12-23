@@ -20,6 +20,11 @@ function preload() {
   
   request.onload = function() {
     console.log(request.response);
+    let result = JSON.parse(request.response);
+    
+    for(key in result) {
+    alert('key:' + key + ' / ' + 'value:' + result[key]);
+}
   }
 }
 
