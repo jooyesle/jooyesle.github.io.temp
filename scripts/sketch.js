@@ -79,9 +79,9 @@ function mousePressed() {
   //capture.loadPixels();
   //req.send('image='+ capture.canvas.toDataURL("image/png").split(';base64,')[1]);
   let data = new FormData();
-  data.append('image', 'R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
+  data.append('image', encodeURI('https://m.fashionbiz.co.kr:6001/images/TN/AR/%EB%B0%95%EB%AC%B8%EC%B9%98.JPG'));
   //data.append('key', '15c781598b3e34982799db6f86a3819f');
-  req.send(data);
+  req.send();
   console.log(canvas.toDataURL());
   
   req.onload = function() {
