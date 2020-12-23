@@ -76,6 +76,7 @@ function mousePressed() {
   req.setRequestHeader('Access-Control-Allow-Origin', '*');
   req.setRequestHeader('Access-Control-Allow-Methods', 'POST'); 
   req.send('image='+ canvas.toDataURL());
+  console.log(canvas.toDataURL());
   
   req.onload = function() {
     console.log(req.response);
