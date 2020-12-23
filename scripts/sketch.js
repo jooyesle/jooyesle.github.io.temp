@@ -22,7 +22,7 @@ function preload() {
     console.log(request.response);
     let result = JSON.parse(request.response);
     
-    foreach(key in Object.keys(result)){
+    foreach(key in result){
       console.log(result[key].keypoints);
     }
     
