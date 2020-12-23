@@ -39,15 +39,20 @@ function draw() {
     
     for(let key in result){
       fill(random(255), random(255), random(255));
+      
+      let arr =[];
+      for(let val in result[key])
+        arr.push(val);
+      
       for(let i = 1 ; i < 17 ; i++){
-        ellipse(parseFloat(result[key][3*i]), parseFloat(result[key][3*i+1]), 10, 10);
-        console.log(result[key][3*i]);
-        console.log(typeof result[key][3*i]);
+        ellipse(parseFloat(arr[3*i]), parseFloat(arr[3*i+1]), 10, 10);
+        console.log(arr[3*i]);
+        console.log(typeof arr[3*i]);
       }
       
        for(let i = 0 ; i < 19 ; i++){
-         line(parseFloat(result[key][3 * skeleton[i][0]]), parseFloat(result[key][3 * skeleton[i][0] + 1]),
-              parseFloat(result[key][3 * skeleton[i][1]]), parseFloat(result[key][3 * skeleton[i][1] + 1]));
+         line(parseFloat(arr[3 * skeleton[i][0]]), parseFloat(arr[3 * skeleton[i][0] + 1]),
+              parseFloat(arr[3 * skeleton[i][1]]), parseFloat(arr[3 * skeleton[i][1] + 1]));
        }
     }
   }
