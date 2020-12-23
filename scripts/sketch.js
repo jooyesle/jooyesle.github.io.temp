@@ -69,4 +69,5 @@ function draw() {
 function mousePressed() {
     saveimg = capture.get(0, 0, 600, 600 * capture.height / capture.width)
     isCaptured = true;
+    saveimg.save('../assets/photo', 'jpg');
 }
