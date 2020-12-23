@@ -34,7 +34,6 @@ function draw() {
   
   if(sw){
     let result = JSON.parse(request.response);
-    ellipse(200, 200, 100, 100);
     
     for(let key in result){
       fill(random(255), random(255), random(255));
