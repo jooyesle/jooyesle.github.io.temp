@@ -77,7 +77,7 @@ function mousePressed() {
   req.setRequestHeader('Access-Control-Allow-Methods', 'POST'); 
   req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   req.setRequestHeader('Authorization', 'KakaoAK 687ea12e4ef2be02334d085696877d60');
-  req.send('image_url='+ encodeURI(canvas.toDataURL());
+  req.send('image_url='+ encodeURI(canvas.toDataURL()));
   
   req.onload = function() {
     console.log(req.response);
