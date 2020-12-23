@@ -43,8 +43,9 @@ function draw() {
         arr.push(val);
       }
 
-      for(let i = 1 ; i < 17 ; i++){
+      for(let i = 0 ; i < 17 ; i++){
         ellipse(arr[3*i], arr[3*i+1], 10, 10);
+        console.log(arr[3*i]);
       }
       
        for(let i = 0 ; i < 19 ; i++){
