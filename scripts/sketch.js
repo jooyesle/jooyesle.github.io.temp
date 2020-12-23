@@ -9,6 +9,7 @@ let skeleton = [[1, 2], [1, 3], [2, 3], [2, 4], [3, 5], [4, 6], [5, 7], [6, 7], 
                              [7, 13], [8, 10], [9, 11], [12, 13], [14, 12], [15, 13], [16, 14], [17, 15]];
 
 let request = new XMLHttpRequest();
+let sw = false;
 
 function preload() {
   let url = 'https://cv-api.kakaobrain.com/pose';
@@ -23,6 +24,7 @@ function preload() {
   
   request.onload = function() {
     console.log(request.response);
+    sw = true;
   }
     
   
@@ -33,7 +35,8 @@ function draw() {
     image(img, 0, 0);
   ellipse(200, 200, 100, 100);
   
-  let result = JSON.parse(request.response);
+  if(sw){
+    let result = JSON.parse(request.response);
     
     for(let key in result){
       console.log(result[key].keypoints);
@@ -48,6 +51,8 @@ function draw() {
             parseInt(result[key][3 * skeleton[i][1]]), parseInt(result[key][3 * skeleton[i][1] + 1]));
        }
     }
-    
+  }
+  
+ 
  
 }
