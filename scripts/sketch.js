@@ -37,10 +37,8 @@ function preload() {
             line(result[key][3 * skeleton[i][0]], result[key][3 * skeleton[i][0] + 1],
             result[key][3 * skeleton[i][1]], result[key][3 * skeleton[i][1] + 1]);
        }
-
     }
     
-
   }
   
 }
