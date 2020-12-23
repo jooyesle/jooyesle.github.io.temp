@@ -2,7 +2,7 @@ let img;
 let capture;
 
 function setup() {
-  createCanvas(540, 540);
+  createCanvas(1200, 1200);
   img = loadImage('../assets/people.jpg');
   
   capture = createCapture(VIDEO);
@@ -34,7 +34,7 @@ function preload() {
 }
 
 function draw() {
-  image(capture, 0, 0, width, width * capture.height / capture.width);
+  image(capture, 600, 0, 600, 600 * capture.height / capture.width);
   
   if(sw){
     image(img, 0, 0);
