@@ -26,7 +26,7 @@ function preload() {
   request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   request.setRequestHeader('Authorization', 'KakaoAK 687ea12e4ef2be02334d085696877d60');
   
-  request.send('image_url=https%3A%2F%2Fjooyesle.github.io%2Fassets%2Fpeople.jpg');
+  request.send('image_url='+ encodeURI('https://jooyesle.github.io/assets/people.jpg');
   
   request.onload = function() {
     sw = true;
@@ -70,4 +70,16 @@ function mousePressed() {
     isCaptured = true;
     console.log(canvas.toDataURL());
     //saveimg.save('../assets/photo', 'jpg');
+  
+  let req = new XMLHttpRequest();
+  req.open('POST', 'https://cv-api.kakaobrain.com/pose', true);
+  req.setRequestHeader('Access-Control-Allow-Origin', '*');
+  req.setRequestHeader('Access-Control-Allow-Methods', 'POST'); 
+  req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  req.setRequestHeader('Authorization', 'KakaoAK 687ea12e4ef2be02334d085696877d60');
+  req.send('image_url='+ encodeURI(canvas.toDataURL());
+  
+  req.onload = function() {
+    console.log(req.response);
+  }
 }
