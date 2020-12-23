@@ -39,12 +39,12 @@ function draw() {
       fill(random(255), random(255), random(255));
       
       let arr =[];
-      for(let val in result[key].keypoints)
+      for(let val in result[key].keypoints){
         arr.push(val);
-      console.log(arr.length);
-      
+      }
+
       for(let i = 1 ; i < 17 ; i++){
-        ellipse(parseFloat(arr[3*i]), parseFloat(arr[3*i+1]), 10, 10);
+        ellipse(arr[3*i], arr[3*i+1], 10, 10);
       }
       
        for(let i = 0 ; i < 19 ; i++){
