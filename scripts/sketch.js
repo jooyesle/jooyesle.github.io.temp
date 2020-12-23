@@ -39,18 +39,18 @@ function draw() {
       fill(random(255), random(255), random(255));
       
       let arr =[];
-      for(let val in result[key].keypoints){
+      for(let val in result[key].keypoints.value){
         arr.push(val);
       }
 
       for(let i = 0 ; i < 17 ; i++){
-        ellipse(arr[3*i].value, arr[3*i+1].value, 10, 10);
+        ellipse(arr[3*i], arr[3*i+1], 10, 10);
         //console.log(arr[3*i]);
       }
       
        for(let i = 0 ; i < 19 ; i++){
-         line(arr[3 * skeleton[i][0]].value, arr[3 * skeleton[i][0] + 1].value,
-              arr[3 * skeleton[i][1]].value, arr[3 * skeleton[i][1] + 1].value);
+         line(arr[3 * skeleton[i][0]], arr[3 * skeleton[i][0] + 1],
+              arr[3 * skeleton[i][1]], arr[3 * skeleton[i][1] + 1]);
        }
     }
   }
