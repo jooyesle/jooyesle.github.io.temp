@@ -22,6 +22,10 @@ function preload() {
     console.log(request.response);
     let result = JSON.parse(request.response);
     
+    foreach(key in Object.keys){
+      console.log(result[key].keypoints);
+    }
+    
     console.log(Object.values(result));
     console.log(Object.keys(result));
 }
