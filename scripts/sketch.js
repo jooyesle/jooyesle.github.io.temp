@@ -22,8 +22,8 @@ function preload() {
     console.log(request.response);
     let result = JSON.parse(request.response);
     
-    for(key in result) {
-    console.log('key:' + key + ' / ' + 'value:' + result[key]);
+    console.log(Object.values(result));
+    console.log(Object.keys(result));
 }
   }
 }
