@@ -23,7 +23,16 @@ function preload() {
   
   request.onload = function() {
     console.log(request.response);
-    let result = JSON.parse(request.response);
+  }
+    
+  
+}
+
+
+function draw() {
+    image(img, 0, 0);
+  
+  let result = JSON.parse(request.response);
     
     for(let key in result){
       console.log(result[key].keypoints);
@@ -39,11 +48,5 @@ function preload() {
        }
     }
     
-  }
-  
-}
-
-
-function draw() {
-    image(img, 0, 0);
+ 
 }
