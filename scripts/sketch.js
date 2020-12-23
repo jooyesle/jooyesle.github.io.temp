@@ -33,22 +33,21 @@ function preload() {
 
 function draw() {
     image(img, 0, 0);
-  ellipse(200, 200, 100, 100);
+  
   
   if(sw){
     let result = JSON.parse(request.response);
+    ellipse(200, 200, 100, 100);
     
     for(let key in result){
-      console.log(result[key].keypoints);
-      
       fill(random(255), random(255), random(255));
       for(let i = 1 ; i < 17 ; i++){
         ellipse(parseInt(result[key][3*i]), parseInt(result[key][3*i+1]), 10, 10);
       }
       
        for(let i = 0 ; i < 19 ; i++){
-            line(parseInt(result[key][3 * skeleton[i][0]]), parseInt(result[key][3 * skeleton[i][0] + 1]),
-            parseInt(result[key][3 * skeleton[i][1]]), parseInt(result[key][3 * skeleton[i][1] + 1]));
+         line(parseInt(result[key][3 * skeleton[i][0]]), parseInt(result[key][3 * skeleton[i][0] + 1]),
+              parseInt(result[key][3 * skeleton[i][1]]), parseInt(result[key][3 * skeleton[i][1] + 1]));
        }
     }
   }
