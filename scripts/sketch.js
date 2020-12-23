@@ -23,7 +23,7 @@ function preload() {
     let result = JSON.parse(request.response);
     
     for(key in result) {
-    alert('key:' + key + ' / ' + 'value:' + result[key]);
+    console.log('key:' + key + ' / ' + 'value:' + result[key]);
 }
   }
 }
