@@ -17,11 +17,13 @@ function preload() {
   request.setRequestHeader('Authorization', 'KakaoAK 687ea12e4ef2be02334d085696877d60');
   
   request.send('image_url=https%3A%2F%2Fjooyesle.github.io%2Fassets%2Fpeople.jpg');
+  
+  request.onload = function() {
+    console.log(request.response);
+  }
 }
 
 
 function draw() {
     image(img, 0, 0);
-    console.log(request.response);
-  
 }
