@@ -43,6 +43,7 @@ function draw() {
       fill(random(255), random(255), random(255));
       for(let i = 1 ; i < 17 ; i++){
         ellipse(parseInt(result[key][3*i]), parseInt(result[key][3*i+1]), 10, 10);
+        console.log(parseInt(result[key][3*i]));
       }
       
        for(let i = 0 ; i < 19 ; i++){
