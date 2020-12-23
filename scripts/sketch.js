@@ -31,6 +31,7 @@ function preload() {
 
 function draw() {
     image(img, 0, 0);
+  ellipse(200, 200, 100, 100);
   
   let result = JSON.parse(request.response);
     
