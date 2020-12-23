@@ -43,6 +43,7 @@ function draw() {
       let arr =[];
       for(let val in result[key])
         arr.push(val);
+      console.log(arr.length);
       
       for(let i = 1 ; i < 17 ; i++){
         ellipse(parseFloat(arr[3*i]), parseFloat(arr[3*i+1]), 10, 10);
