@@ -5,8 +5,8 @@ function setup() {
   img = loadImage('../assets/people.jpg');
 }
 
-let skeleton = [[0, 1], [0, 2], [1, 2], [1, 3], [2, 4], [3, 5], [4, 6], [5, 6], [5, 7], [5, 11], [6, 8],
-                             [6, 12], [7, 9], [8, 10], [11, 12], [13, 11], [14, 12], [15, 13], [16, 14]];
+let skeleton = [[0, 1], [0, 2], [1, 2], [1, 3], [2, 4], [5, 6], [5, 7], [5, 11], [6, 8],
+                [6, 12], [7, 9], [8, 10], [11, 12], [13, 11], [14, 12], [15, 13], [16, 14]];
 
 let request = new XMLHttpRequest();
 let sw = false;
@@ -30,9 +30,9 @@ function preload() {
 }
 
 function draw() {
+  if(sw){
     image(img, 0, 0);
   
-  if(sw){
     let result = JSON.parse(request.response);
     
     for(let key in result){
@@ -40,16 +40,18 @@ function draw() {
       
       let arr =Object.values(result[key].keypoints);
       
-      for(let i = 0 ; i < 17 ; i++){
+      for(let i = 0 ; i < arr.length/3 ; i++){
         ellipse(arr[3*i], arr[3*i+1], 10, 10);
         console.log(arr[3*i]);
       }
       
-       for(let i = 0 ; i < 19 ; i++){
+       for(let i = 0 ; i < skeleton.length ; i++){
          line(arr[3 * skeleton[i][0]], arr[3 * skeleton[i][0] + 1],
               arr[3 * skeleton[i][1]], arr[3 * skeleton[i][1] + 1]);
        }
     }
+    
+    sw = false;
   }
   
  
