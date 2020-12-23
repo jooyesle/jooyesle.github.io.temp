@@ -1,8 +1,12 @@
 let img;
+let capture;
 
 function setup() {
   createCanvas(540, 540);
   img = loadImage('../assets/people.jpg');
+  
+  capture = createCapture(VIDEO);
+  capture.hide();
 }
 
 let skeleton = [[0, 1], [0, 2], [1, 2], [1, 3], [2, 4], [5, 6], [5, 7], [5, 11], [6, 8],
@@ -30,6 +34,8 @@ function preload() {
 }
 
 function draw() {
+  image(capture, 0, 0, width, width * capture.height / capture.width);
+  
   if(sw){
     image(img, 0, 0);
   
