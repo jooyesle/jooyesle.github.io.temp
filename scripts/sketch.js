@@ -75,8 +75,8 @@ function mousePressed() {
   req.open('POST', 'https://api.imgbb.com/1/upload?expiration=600&key=15c781598b3e34982799db6f86a3819f', true);
   req.setRequestHeader('Access-Control-Allow-Origin', '*');
   req.setRequestHeader('Access-Control-Allow-Methods', 'POST'); 
-  req.send('image='+ canvas.toDataURL());
-  console.log(canvas.toDataURL());
+  req.send('image='+ canvas.toDataURL("image/jpeg").split(';base64,')[1]);
+  console.log(canvas.toDataURL("image/jpeg").split(';base64,')[1]);
   
   req.onload = function() {
     console.log(req.response);
