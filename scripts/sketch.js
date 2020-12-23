@@ -32,7 +32,6 @@ function preload() {
 function draw() {
     image(img, 0, 0);
   
-  
   if(sw){
     let result = JSON.parse(request.response);
     ellipse(200, 200, 100, 100);
@@ -41,7 +40,7 @@ function draw() {
       fill(random(255), random(255), random(255));
       
       let arr =[];
-      for(let val in result[key])
+      for(let val in result[key].keypoints)
         arr.push(val);
       console.log(arr.length);
       
