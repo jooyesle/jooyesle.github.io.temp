@@ -71,14 +71,16 @@ function mousePressed() {
     //saveimg.save('../assets/photo', 'jpg');
   
   let req = new XMLHttpRequest();
-  req.open('POST', 'https://api.imgbb.com/1/upload?expiration=600', true);
-  req.setRequestHeader('Access-Control-Allow-Origin', '*');
-  req.setRequestHeader('Access-Control-Allow-Methods', 'POST'); 
+  req.open('POST', 'https://api.imgbb.com/1/upload?expiration=600&key=15c781598b3e34982799db6f86a3819f', true);
+  
+  //req.setRequestHeader('Access-Control-Allow-Origin', '*');
+  //req.setRequestHeader('Access-Control-Allow-Methods', 'POST'); 
+  
   //capture.loadPixels();
   //req.send('image='+ capture.canvas.toDataURL("image/png").split(';base64,')[1]);
   let data = new FormData();
   data.append('image', 'R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
-  data.append('key', '15c781598b3e34982799db6f86a3819f');
+  //data.append('key', '15c781598b3e34982799db6f86a3819f');
   req.send(data);
   console.log(canvas.toDataURL());
   
