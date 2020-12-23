@@ -68,7 +68,6 @@ function draw() {
 function mousePressed() {
     saveimg = capture.get(0, 0, 600, 600 * capture.height / capture.width);
     isCaptured = true;
-    console.log(canvas.toDataURL());
     //saveimg.save('../assets/photo', 'jpg');
   
   let req = new XMLHttpRequest();
