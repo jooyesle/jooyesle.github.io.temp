@@ -38,14 +38,11 @@ function draw() {
     for(let key in result){
       fill(random(255), random(255), random(255));
       
-      let arr =[];
-      for(let val in Object.keys(result[key].keypoints)){
-        arr.push(val);
-      }
-
+      let arr =Object.values(result[key].keypoints);
+      
       for(let i = 0 ; i < 17 ; i++){
         ellipse(arr[3*i], arr[3*i+1], 10, 10);
-        //console.log(arr[3*i]);
+        console.log(arr[3*i]);
       }
       
        for(let i = 0 ; i < 19 ; i++){
