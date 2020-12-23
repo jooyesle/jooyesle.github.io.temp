@@ -58,7 +58,11 @@ function draw() {
     
     sw = false;
   }
-  
  
- 
+}
+
+function mousePressed() {
+    let saveimg = capture.get(600,0,160,120)
+    
+    image(saveimg, 600, 600, 600, 600 * capture.height / capture.width);
 }
