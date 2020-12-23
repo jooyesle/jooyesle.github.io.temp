@@ -1,5 +1,6 @@
 let img;
 let capture;
+let saveimg;
 
 function setup() {
   createCanvas(1200, 1200);
@@ -14,6 +15,7 @@ let skeleton = [[0, 1], [0, 2], [1, 2], [1, 3], [2, 4], [5, 6], [5, 7], [5, 11],
 
 let request = new XMLHttpRequest();
 let sw = false;
+let isCaptured = false;
 
 function preload() {
   let url = 'https://cv-api.kakaobrain.com/pose';
@@ -34,7 +36,10 @@ function preload() {
 }
 
 function draw() {
-  image(capture, 600, 0, 600, 600 * capture.height / capture.width);
+  if(isCaptured)
+    image(saveimg, 600, 0, 600, 600 * capture.height / capture.width);
+  else
+    image(capture, 600, 0, 600, 600 * capture.height / capture.width);
   
   if(sw){
     image(img, 0, 0);
@@ -62,7 +67,6 @@ function draw() {
 }
 
 function mousePressed() {
-    let saveimg = capture.get(600,0,160,120)
-    
-    image(saveimg, 600, 600, 600, 600 * capture.height / capture.width);
+    saveimg = capture.get(600,0,160,120)
+    isCaptured = true;
 }
