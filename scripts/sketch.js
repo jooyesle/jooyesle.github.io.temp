@@ -26,8 +26,8 @@ function preload() {
       console.log(result[key].keypoints);
     }
     
-    console.log(Object.values(result));
-    console.log(Object.keys(result));
+    //console.log(Object.values(result));
+    //console.log(Object.keys(result));
   }
 
 }
