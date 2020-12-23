@@ -29,7 +29,6 @@ function preload() {
   request.send('image_url=https%3A%2F%2Fjooyesle.github.io%2Fassets%2Fpeople.jpg');
   
   request.onload = function() {
-    console.log(request.response);
     sw = true;
   }
   
@@ -69,6 +68,6 @@ function draw() {
 function mousePressed() {
     saveimg = capture.get(0, 0, 600, 600 * capture.height / capture.width)
     isCaptured = true;
-    console.log(canvas.toDataURL());
+    console.log(saveimg.toDataURL());
     //saveimg.save('../assets/photo', 'jpg');
 }
