@@ -42,7 +42,6 @@ function draw() {
       
       for(let i = 0 ; i < arr.length/3 ; i++){
         ellipse(arr[3*i], arr[3*i+1], 10, 10);
-        console.log(arr[3*i]);
       }
       
        for(let i = 0 ; i < skeleton.length ; i++){
