@@ -25,7 +25,8 @@ function preload() {
     console.log(request.response);
     let result = JSON.parse(request.response);
     
-    for(let key in result){
+    for(let keykey in result){
+      let key = parseInt(keykey);
       console.log(result[key].keypoints);
       
       fill(random(255), random(255), random(255));
