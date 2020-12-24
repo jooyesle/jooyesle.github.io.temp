@@ -4,7 +4,7 @@ let saveimg;
 
 function setup() {
   createCanvas(1200, 1200);
-  img = loadImage('../assets/people.jpg');
+  img = loadImage('../assets/friends.jpeg');
   
   capture = createCapture(VIDEO);
   capture.hide();
