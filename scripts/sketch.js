@@ -3,7 +3,7 @@ let capture;
 let saveimg;
 
 function setup() {
-  createCanvas(1200, 1200);
+  createCanvas(1500, 1500);
   img = loadImage('../assets/friends.jpeg');
   
   capture = createCapture(VIDEO);
@@ -37,9 +37,9 @@ function preload() {
 
 function draw() {
   if(isCaptured)
-    image(saveimg, 600, 0, saveimg.width, saveimg.height);
+    image(saveimg, 1000, 0, saveimg.width, saveimg.height);
   else
-    image(capture, 600, 0, 100, 100 * capture.height / capture.width);
+    image(capture, 1000, 0, 100, 100 * capture.height / capture.width);
   
   if(sw){
     image(img, 0, 0);
@@ -71,19 +71,20 @@ function mousePressed() {
     isCaptured = true;
     //saveimg.save('../assets/photo', 'jpg');
   
-  let req = new XMLHttpRequest();
-  req.open('POST', 'https://api.imgbb.com/1/upload?expiration=600&key=15c781598b3e34982799db6f86a3819f', true);
+    let req = new XMLHttpRequest();
+    req.open('POST', 'https://api.imgbb.com/1/upload?expiration=600&key=15c781598b3e34982799db6f86a3819f', true);
   
-  //req.setRequestHeader('Access-Control-Allow-Origin', '*');
-  //req.setRequestHeader('Access-Control-Allow-Methods', 'POST'); 
+    //req.setRequestHeader('Access-Control-Allow-Origin', '*');
+    //req.setRequestHeader('Access-Control-Allow-Methods', 'POST'); 
   
-  capture.loadPixels();
-  //req.send('image='+ capture.canvas.toDataURL("image/png").split(';base64,')[1]);
-  req.send('image=iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==')
+    capture.loadPixels();
+    //req.send('image='+ capture.canvas.toDataURL("image/png").split(';base64,')[1]);
+    //req.send('image=iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==');
+    req.send('image=YSBzbGlnaHRseSBsb25nZXIgdGVzdCBmb3IgdGV2ZXIK');
+    
+    console.log(capture.canvas.toDataURL("image/png").split(';base64,')[1]);
   
-  console.log(capture.canvas.toDataURL("image/png").split(';base64,')[1]);
-  
-  req.onload = function() {
+    req.onload = function() {
     console.log(req.response);
   }
 }
