@@ -27,7 +27,7 @@ function preload() {
   request.setRequestHeader('Authorization', 'KakaoAK 687ea12e4ef2be02334d085696877d60');
   
   //request.send('image_url='+ encodeURI('https://jooyesle.github.io/assets/people.jpg'));
-  request.send('image_url='+ encodeURI('https://i.ibb.co/tQqJnV4/friends.jpg'));
+  request.send('image_url='+ encodeURI('https://jooyesle.github.io/assets/friends.jpeg'));
   
   request.onload = function() {
     sw = true;
