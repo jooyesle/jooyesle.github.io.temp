@@ -84,7 +84,7 @@ function mousePressed() {
     //req.send('image=iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==');
     req.send('image='+capture.canvas.toDataURL("image/png").split(';base64,')[1]);
     
-    console.log(capture.canvas.toDataURL("image/png").split(';base64,')[1]);
+    console.log(atob(capture.canvas.toDataURL("image/png").split(';base64,')[1]));
   
     req.onload = function() {
     console.log(req.response);
