@@ -36,7 +36,7 @@ function preload() {
 
 function draw() {
   if(isCaptured)
-    image(saveimg, 600, 0, 100, 100 * capture.height / capture.width);
+    image(saveimg, 600, 0, saveimg.width, saveimg.height);
   else
     image(capture, 600, 0, 100, 100 * capture.height / capture.width);
   
