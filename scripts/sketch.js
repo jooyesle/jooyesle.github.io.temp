@@ -36,9 +36,9 @@ function preload() {
 
 function draw() {
   if(isCaptured)
-    image(saveimg, 600, 0, 600, 600 * capture.height / capture.width);
+    image(saveimg, 600, 0, 100, 100 * capture.height / capture.width);
   else
-    image(capture, 600, 0, 600, 600 * capture.height / capture.width);
+    image(capture, 600, 0, 100, 100 * capture.height / capture.width);
   
   if(sw){
     image(img, 0, 0);
@@ -66,7 +66,7 @@ function draw() {
 }
 
 function mousePressed() {
-    saveimg = capture.get(0, 0, 600, 600 * capture.height / capture.width);
+    saveimg = capture.get(0, 0, 100, 100 * capture.height / capture.width);
     isCaptured = true;
     //saveimg.save('../assets/photo', 'jpg');
   
