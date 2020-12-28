@@ -87,7 +87,6 @@ function draw() {
 
   push();
   translate(800, 0);
-
   if (sw2) {
     image(saveimg, 0, 0, saveimg.width, saveimg.height);
     let result = JSON.parse(request2.response);
@@ -96,6 +95,11 @@ function draw() {
   } else if (showVideo) {
     image(capture, 0, 0, 600, (600 * capture.height) / capture.width);
   }
+  
+  translate(0, 700);
+  textSize(32);
+  text('sending photo to database', 0, 0);
+  text('sending image from database to Kakao sdk', 0, 50);
   pop();
 }
 
