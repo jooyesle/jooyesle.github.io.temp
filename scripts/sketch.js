@@ -118,7 +118,7 @@ function draw() {
 }
 
 function mousePressed() {
-    if (mouseButton == LEFT) {
+    if (mouseButton == LEFT && sw2 == false) {
         showVideo = false;
         saveimg = capture.get(0, 0, 600, (600 * capture.height) / capture.width);
 
