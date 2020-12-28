@@ -69,7 +69,6 @@ function draw() {
 function mousePressed() {
     saveimg = capture.get(0, 0, 600, 600 * capture.height / capture.width);
     isCaptured = true;
-    //saveimg.save('../assets/photo', 'jpg');
   
     let req = new XMLHttpRequest();
     req.open('POST', 'https://api.imgbb.com/1/upload?expiration=600&key=15c781598b3e34982799db6f86a3819f', true);
@@ -88,7 +87,7 @@ function mousePressed() {
     req.send('image='+capture.canvas.toDataURL("image/png").split(';base64,')[1]);
   
     console.log('image='+capture.canvas.toDataURL("image/png").split(';base64,')[1]);
-    capture.save('capture', 'png');
+    saveimg.save('capture', 'png');
   
     req.onload = function() {
     console.log(req.response);
