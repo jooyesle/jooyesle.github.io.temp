@@ -75,7 +75,7 @@ function mousePressed() {
     req.open('POST', 'https://api.imgbb.com/1/upload?expiration=600&key=15c781598b3e34982799db6f86a3819f', true);
     req.setRequestHeader('Access-Control-Allow-Origin', '*');
     req.setRequestHeader('Access-Control-Allow-Methods', 'POST');
-    req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    req.setRequestHeader('Content-Type', 'text/plain');
     req.setRequestHeader('Content-Transfer-Encoding', 'base64');
   
     //req.setRequestHeader('Access-Control-Allow-Origin', '*');
