@@ -39,7 +39,7 @@ function draw() {
   if(isCaptured)
     image(saveimg, 1000, 0, saveimg.width, saveimg.height);
   else
-    image(capture, 1000, 0, 300, 300 * capture.height / capture.width);
+    image(capture, 1000, 0, 600, 600 * capture.height / capture.width);
   
   if(sw){
     image(img, 0, 0);
@@ -67,7 +67,7 @@ function draw() {
 }
 
 function mousePressed() {
-    saveimg = capture.get(0, 0, 300, 300 * capture.height / capture.width);
+    saveimg = capture.get(0, 0, 600, 600 * capture.height / capture.width);
     isCaptured = true;
     saveimg.save('capture', 'png');
   
@@ -81,8 +81,10 @@ function mousePressed() {
     //req.send('image=iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==');
   
     saveimg.loadPixels();
-    req.send('image='+encodeURI(saveimg.canvas.toDataURL("image/png").split(';base64,')[1]));
-    console.log('image='+encodeURI(saveimg.canvas.toDataURL("image/png").split(';base64,')[1]));
+    let b64str = saveimg.canvas.toDataURL("image/png").split(';base64,')[1]);
+    b64str.replaceAll('+', '%2B')
+    req.send('image='+b64str);
+    console.log('image='+b64str);
     
     req.onload = function() {
     console.log(req.response);
