@@ -138,7 +138,7 @@ function mousePressed() {
         };
         };
     }
-    if(mouseButton == Right){
+    if(mouseButton == RIGHT){
         showVideo = true;
   }
 }
