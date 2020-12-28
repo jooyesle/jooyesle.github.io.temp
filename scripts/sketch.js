@@ -37,11 +37,11 @@ function preload() {
 }
 
 function draw() {
-  if(isCaptured)
+  /*if(isCaptured)
     image(saveimg, 1000, 0, saveimg.width, saveimg.height);
   else
     image(capture, 1000, 0, 600, 600 * capture.height / capture.width);
-  
+  */
   if(sw){
     image(img, 0, 0);
   
@@ -65,9 +65,31 @@ function draw() {
     sw = false;
   }
   
+  translate(800, 0);
   if(sw2){
-    //let result = JSON.parse(req.response);
+    image(saveimg, 0, 0, saveimg.width, saveimg.height);
+
+    let result = JSON.parse(request.response);
+    
+    for(let key in result){
+      fill(random(255), random(255), random(255));
+      
+      let arr =Object.values(result[key].keypoints);
+      
+      for(let i = 0 ; i < arr.length/3 ; i++){
+        ellipse(arr[3*i], arr[3*i+1], 10, 10);
+      }
+      
+       for(let i = 0 ; i < skeleton.length ; i++){
+         line(arr[3 * skeleton[i][0]], arr[3 * skeleton[i][0] + 1],
+              arr[3 * skeleton[i][1]], arr[3 * skeleton[i][1] + 1]);
+       }
+    }
   }
+  else{
+    image(capture, 0, 0, 600, 600 * capture.height / capture.width);
+  }
+  pop();
 
  
 }
@@ -94,6 +116,21 @@ function mousePressed() {
         sw2 = true;
         let result = JSON.parse(req.response);
         console.log(result.data.url);
+
+        let url = 'https://cv-api.kakaobrain.com/pose';
+  
+        request.open('POST', url, true);
+        request.setRequestHeader('Access-Control-Allow-Origin', '*');
+        request.setRequestHeader('Access-Control-Allow-Methods', 'POST'); 
+        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        request.setRequestHeader('Authorization', 'KakaoAK 687ea12e4ef2be02334d085696877d60');
+  
+        request.send('image_url='+ encodeURI(result.data.url);
+  
+        request.onload = function() {
+            sw2 = true;
+        }
+
       }
     }
     
