@@ -96,7 +96,12 @@ function draw() {
     image(capture, 0, 0, 600, (600 * capture.height) / capture.width);
   }
   
-  translate(0, 700);
+  translate(0, 600);
+  ellipse(0, 0, 20, 20);
+  ellipse(0, 50, 20, 20);
+  
+  translate(50, 0);
+  fill(255, 255, 255);
   textSize(32);
   text('sending photo to database', 0, 0);
   text('sending image from database to Kakao sdk', 0, 50);
