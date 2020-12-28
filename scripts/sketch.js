@@ -87,7 +87,7 @@ function mousePressed() {
     
     //console.log(atob(capture.canvas.toDataURL("image/png").split(';base64,')[1]));
   
-    req.send("image=https://www.w3schools.com/w3css/img_snowtops.jpg");
+    req.send('image='+encodeURI('https://www.w3schools.com/w3css/img_snowtops.jpg'));
   
     req.onload = function() {
     console.log(req.response);
