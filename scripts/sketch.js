@@ -99,7 +99,6 @@ function mousePressed() {
     if( mouseButton == LEFT) {
       saveimg = capture.get(0, 0, 600, 600 * capture.height / capture.width);
       isCaptured = true;
-      saveimg.save('capture', 'png');
   
       let req = new XMLHttpRequest();
       req.open('POST', 'https://api.imgbb.com/1/upload?expiration=3600&key=15c781598b3e34982799db6f86a3819f', true);
@@ -125,7 +124,7 @@ function mousePressed() {
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         request.setRequestHeader('Authorization', 'KakaoAK 687ea12e4ef2be02334d085696877d60');
   
-        request.send('image_url='+ encodeURI(result.data.url);
+        request.send('image_url='+ encodeURI(result.data.url));
   
         request.onload = function() {
             sw2 = true;
