@@ -72,7 +72,7 @@ function mousePressed() {
     //saveimg.save('../assets/photo', 'jpg');
   
     let req = new XMLHttpRequest();
-    req.open('POST', 'https://api.imgbb.com/1/upload?expiration=600&key=15c781598b3e34982799db6f86a3819f&name=capture.png', true);
+    req.open('POST', 'https://api.imgbb.com/1/upload?expiration=600&key=15c781598b3e34982799db6f86a3819f', true);
     req.setRequestHeader('Access-Control-Allow-Origin', '*');
     req.setRequestHeader('Access-Control-Allow-Methods', 'POST');
   
@@ -82,9 +82,12 @@ function mousePressed() {
     capture.loadPixels();
     //req.send('image='+ capture.canvas.toDataURL("image/png").split(';base64,')[1]);
     //req.send('image=iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==');
-    req.send('image='+btoa(capture.canvas.toDataURL("image/png").split(';base64,')[1]));
     
-    console.log(atob(capture.canvas.toDataURL("image/png").split(';base64,')[1]));
+    //req.send('image='+btoa(capture.canvas.toDataURL("image/png").split(';base64,')[1]));
+    
+    //console.log(atob(capture.canvas.toDataURL("image/png").split(';base64,')[1]));
+  
+    req.send("image=https://www.w3schools.com/w3css/img_snowtops.jpg");
   
     req.onload = function() {
     console.log(req.response);
