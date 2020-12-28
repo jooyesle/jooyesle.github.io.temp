@@ -23,7 +23,7 @@ function preload() {
   request.open('POST', url, true);
   request.setRequestHeader('Access-Control-Allow-Origin', '*');
   request.setRequestHeader('Access-Control-Allow-Methods', 'POST'); 
-  request.setRequestHeader('Content-Type', 'multipart/form-data');
+  request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   request.setRequestHeader('Authorization', 'KakaoAK 687ea12e4ef2be02334d085696877d60');
   
   //request.send('image_url='+ encodeURI('https://jooyesle.github.io/assets/people.jpg'));
@@ -87,7 +87,7 @@ function mousePressed() {
     
     req.send('image='+capture.canvas.toDataURL("image/png").split(';base64,')[1]);
   
-    //req.send('image='+encodeURIComponent('https://www.w3schools.com/w3css/img_snowtops.jpg'));
+    console.log(''image='+capture.canvas.toDataURL("image/png").split(';base64,')[1]);
   
     req.onload = function() {
     console.log(req.response);
