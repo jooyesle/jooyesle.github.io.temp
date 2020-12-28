@@ -81,7 +81,7 @@ function mousePressed() {
     //req.send('image=iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==');
   
     saveimg.loadPixels();
-    let b64str = saveimg.canvas.toDataURL("image/png").split(';base64,')[1]);
+    let b64str = saveimg.canvas.toDataURL("image/png").split(';base64,')[1];
     b64str.replaceAll('+', '%2B')
     req.send('image='+b64str);
     console.log('image='+b64str);
