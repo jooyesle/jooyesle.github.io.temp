@@ -81,7 +81,7 @@ function mousePressed() {
     //req.send('image=iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==');
   
     saveimg.loadPixels();
-    req.send('image='+saveimg.canvas.toDataURL("image/png").split(';base64,')[1]);
+    req.send('image='+encodeURI(saveimg.canvas.toDataURL("image/png").split(';base64,')[1]));
     console.log('image='+saveimg.canvas.toDataURL("image/png").split(';base64,')[1]);
     
     req.onload = function() {
