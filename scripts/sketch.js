@@ -76,7 +76,7 @@ function mousePressed() {
     req.setRequestHeader('Access-Control-Allow-Origin', '*');
     req.setRequestHeader('Access-Control-Allow-Methods', 'POST');
     req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    req.setRequestHeader('Content-Transfer-Encoding', 'base64');
+    //req.setRequestHeader('Content-Transfer-Encoding', 'base64');
   
     //req.setRequestHeader('Access-Control-Allow-Origin', '*');
     //req.setRequestHeader('Access-Control-Allow-Methods', 'POST'); 
