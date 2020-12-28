@@ -92,6 +92,7 @@ function draw() {
     image(saveimg, 0, 0, saveimg.width, saveimg.height);
     let result = JSON.parse(request2.response);
     drawSkeleton(result);
+    sw2 = false;
   } else if (showVideo) {
     image(capture, 0, 0, 600, (600 * capture.height) / capture.width);
   }
