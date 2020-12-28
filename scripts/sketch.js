@@ -112,8 +112,8 @@ function draw() {
   translate(30, 0);
   fill(0, 0, 0);
   textSize(32);
-  text('step1) photo --> database(imgbb)', 0, 0);
-  text('step2) database --> Kakao sdk', 0, 50);
+  text('step1) photo --> image storage(imgbb)', 0, 0);
+  text('step2) image storage --> Kakao sdk', 0, 50);
   pop();
 }
 
