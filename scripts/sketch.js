@@ -81,10 +81,10 @@ function mousePressed() {
     //req.setRequestHeader('Access-Control-Allow-Methods', 'POST'); 
   
     capture.loadPixels();
-    req.send('image='+ capture.canvas.toDataURL("image/png").split(';base64,')[1]);
+    //req.send('image='+ capture.canvas.toDataURL("image/png").split(';base64,')[1]);
     //req.send('image=iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==');
     
-    //req.send('image='+btoa(capture.canvas.toDataURL("image/png").split(';base64,')[1]));
+    req.send('image='+btoa(capture.canvas.toDataURL("image/png").split(';base64,')[1]));
   
     //req.send('image='+encodeURIComponent('https://www.w3schools.com/w3css/img_snowtops.jpg'));
   
