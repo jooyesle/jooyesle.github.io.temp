@@ -158,7 +158,12 @@ function mousePressed() {
         };
         };
     }
-    if(mouseButton == RIGHT && step1==step2){
-        showVideo = true;
   }
+}
+
+function keyPressed(){
+      if(key == 'r'  && step1==step2){
+        showVideo = true;
+        print("video on");
+      }
 }
