@@ -7,6 +7,8 @@ let sw1 = false;
 let sw2 = false;
 let showVideo = true;
 let kakao_url = "https://cv-api.kakaobrain.com/pose";
+let step1 = false;
+let step2 = false;
 
 function setup() {
   createCanvas(1500, 1500);
@@ -92,20 +94,26 @@ function draw() {
     let result = JSON.parse(request2.response);
     drawSkeleton(result);
     sw2 = false;
+    step2 = true;
   } else if (showVideo) {
     image(capture, 0, 0, 600, (600 * capture.height) / capture.width);
   }
   
   translate(0, 500);
   fill(255, 0, 0);
+  if(step1)
+    fill(0, 255, 0);
   ellipse(0, 0, 20, 20);
+  fill(255, 0, 0);
+  if(step2)
+     fill(0, 255, 0);
   ellipse(0, 50, 20, 20);
   
-  translate(50, 0);
+  translate(30, 0);
   fill(0, 0, 0);
   textSize(32);
-  text('sending photo to database', 0, 0);
-  text('sending image from database to Kakao sdk', 0, 50);
+  text('step1) photo --> database(imgbb)', 0, 0);
+  text('step2) database --> Kakao sdk', 0, 50);
   pop();
 }
 
@@ -130,6 +138,7 @@ function mousePressed() {
         imageHostingRequest.send("image=" + sendstr);
 
         imageHostingRequest.onload = function () {
+            step1 = true;
             request2.open("POST", kakao_url, true);
             request2.setRequestHeader("Access-Control-Allow-Origin", "*");
             request2.setRequestHeader("Access-Control-Allow-Methods", "POST");
@@ -149,7 +158,7 @@ function mousePressed() {
         };
         };
     }
-    if(mouseButton == RIGHT){
+    if(mouseButton == RIGHT && step1==step2){
         showVideo = true;
   }
 }
