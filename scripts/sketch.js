@@ -13,7 +13,7 @@ function setup() {
 let skeleton = [[0, 1], [0, 2], [1, 2], [1, 3], [2, 4], [5, 6], [5, 7], [5, 11], [6, 8],
                 [6, 12], [7, 9], [8, 10], [11, 12], [13, 11], [14, 12], [15, 13], [16, 14]];
 
-function drawSkeleton(Object result){
+function drawSkeleton(result){
   for(let key in result){
       fill(random(255), random(255), random(255));
       
