@@ -15,6 +15,7 @@ let skeleton = [[0, 1], [0, 2], [1, 2], [1, 3], [2, 4], [5, 6], [5, 7], [5, 11],
 
 let request = new XMLHttpRequest();
 let sw = false;
+let sw2 = false;
 let isCaptured = false;
 
 function preload() {
@@ -63,26 +64,37 @@ function draw() {
     
     sw = false;
   }
+  
+  if(sw2){
+    let result = JSON.parse(req.response);
+  }
+
  
 }
 
 function mousePressed() {
-    saveimg = capture.get(0, 0, 600, 600 * capture.height / capture.width);
-    isCaptured = true;
-    saveimg.save('capture', 'png');
   
-    let req = new XMLHttpRequest();
-    req.open('POST', 'https://api.imgbb.com/1/upload?expiration=3600&key=15c781598b3e34982799db6f86a3819f', true);
-    req.setRequestHeader('Access-Control-Allow-Origin', '*');
-    req.setRequestHeader('Access-Control-Allow-Methods', 'POST');
-    req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    if( mouseButton == LEFT) {
+      saveimg = capture.get(0, 0, 600, 600 * capture.height / capture.width);
+      isCaptured = true;
+      saveimg.save('capture', 'png');
+  
+      let req = new XMLHttpRequest();
+      req.open('POST', 'https://api.imgbb.com/1/upload?expiration=3600&key=15c781598b3e34982799db6f86a3819f', true);
+      req.setRequestHeader('Access-Control-Allow-Origin', '*');
+      req.setRequestHeader('Access-Control-Allow-Methods', 'POST');
+      req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-    saveimg.loadPixels();
-    let b64str = saveimg.canvas.toDataURL("image/png").split(';base64,')[1];
-    let sendstr = b64str.replaceAll('+', '%2B')
-    req.send('image=' + sendstr);
+      saveimg.loadPixels();
+      let b64str = saveimg.canvas.toDataURL("image/png").split(';base64,')[1];
+      let sendstr = b64str.replaceAll('+', '%2B')
+      req.send('image=' + sendstr);
     
-    req.onload = function() {
-    console.log(req.response.url);
-  }
+      req.onload = function() {
+        sw2 = true;
+        let result = JSON.parse(req.response);
+        console.log(result.url);
+      }
+    }
+    
 }
