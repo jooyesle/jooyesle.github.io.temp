@@ -158,7 +158,6 @@ function mousePressed() {
         };
         };
     }
-  }
 }
 
 function keyPressed(){
