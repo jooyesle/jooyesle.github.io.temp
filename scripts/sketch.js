@@ -13,6 +13,23 @@ function setup() {
 let skeleton = [[0, 1], [0, 2], [1, 2], [1, 3], [2, 4], [5, 6], [5, 7], [5, 11], [6, 8],
                 [6, 12], [7, 9], [8, 10], [11, 12], [13, 11], [14, 12], [15, 13], [16, 14]];
 
+function drawSkeleton(Object result){
+  for(let key in result){
+      fill(random(255), random(255), random(255));
+      
+      let arr =Object.values(result[key].keypoints);
+      
+      for(let i = 0 ; i < arr.length/3 ; i++){
+        ellipse(arr[3*i], arr[3*i+1], 10, 10);
+      }
+      
+       for(let i = 0 ; i < skeleton.length ; i++){
+         line(arr[3 * skeleton[i][0]], arr[3 * skeleton[i][0] + 1],
+              arr[3 * skeleton[i][1]], arr[3 * skeleton[i][1] + 1]);
+       }
+    }
+}
+
 let request = new XMLHttpRequest();
 let request2 = new XMLHttpRequest();
 let sw = false;
@@ -47,21 +64,8 @@ function draw() {
     image(img, 0, 0);
   
     let result = JSON.parse(request.response);
+    drawSkeleton(result);
     
-    for(let key in result){
-      fill(random(255), random(255), random(255));
-      
-      let arr =Object.values(result[key].keypoints);
-      
-      for(let i = 0 ; i < arr.length/3 ; i++){
-        ellipse(arr[3*i], arr[3*i+1], 10, 10);
-      }
-      
-       for(let i = 0 ; i < skeleton.length ; i++){
-         line(arr[3 * skeleton[i][0]], arr[3 * skeleton[i][0] + 1],
-              arr[3 * skeleton[i][1]], arr[3 * skeleton[i][1] + 1]);
-       }
-    }
     
     sw = false;
   }
@@ -72,21 +76,8 @@ function draw() {
     image(saveimg, 0, 0, saveimg.width, saveimg.height);
 
     let result = JSON.parse(request2.response);
+     drawSkeleton(result);
     
-    for(let key in result){
-      fill(random(255), random(255), random(255));
-      
-      let arr =Object.values(result[key].keypoints);
-      
-      for(let i = 0 ; i < arr.length/3 ; i++){
-        ellipse(arr[3*i], arr[3*i+1], 10, 10);
-      }
-      
-       for(let i = 0 ; i < skeleton.length ; i++){
-         line(arr[3 * skeleton[i][0]], arr[3 * skeleton[i][0] + 1],
-              arr[3 * skeleton[i][1]], arr[3 * skeleton[i][1] + 1]);
-       }
-    }
   }
   else{
     image(capture, 0, 0, 600, 600 * capture.height / capture.width);
