@@ -14,6 +14,7 @@ let skeleton = [[0, 1], [0, 2], [1, 2], [1, 3], [2, 4], [5, 6], [5, 7], [5, 11],
                 [6, 12], [7, 9], [8, 10], [11, 12], [13, 11], [14, 12], [15, 13], [16, 14]];
 
 let request = new XMLHttpRequest();
+let request2 = new XMLHttpRequest();
 let sw = false;
 let sw2 = false;
 let isCaptured = false;
@@ -65,11 +66,12 @@ function draw() {
     sw = false;
   }
   
+  push();
   translate(800, 0);
   if(sw2){
     image(saveimg, 0, 0, saveimg.width, saveimg.height);
 
-    let result = JSON.parse(request.response);
+    let result = JSON.parse(request2.response);
     
     for(let key in result){
       fill(random(255), random(255), random(255));
@@ -118,15 +120,15 @@ function mousePressed() {
 
         let url = 'https://cv-api.kakaobrain.com/pose';
   
-        request.open('POST', url, true);
-        request.setRequestHeader('Access-Control-Allow-Origin', '*');
-        request.setRequestHeader('Access-Control-Allow-Methods', 'POST'); 
-        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        request.setRequestHeader('Authorization', 'KakaoAK 687ea12e4ef2be02334d085696877d60');
+        request2.open('POST', url, true);
+        request2.setRequestHeader('Access-Control-Allow-Origin', '*');
+        request2.setRequestHeader('Access-Control-Allow-Methods', 'POST'); 
+        request2.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        request2.setRequestHeader('Authorization', 'KakaoAK 687ea12e4ef2be02334d085696877d60');
   
-        request.send('image_url='+ encodeURI(result.data.url));
+        request2.send('image_url='+ encodeURI(result.data.url));
   
-        request.onload = function() {
+        request2.onload = function() {
             sw2 = true;
         }
 
