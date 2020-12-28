@@ -114,7 +114,6 @@ function mousePressed() {
       req.send('image=' + sendstr);
     
       req.onload = function() {
-        sw2 = true;
         let result = JSON.parse(req.response);
         console.log(result.data.url);
 
