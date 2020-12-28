@@ -23,7 +23,7 @@ function preload() {
   request.open('POST', url, true);
   request.setRequestHeader('Access-Control-Allow-Origin', '*');
   request.setRequestHeader('Access-Control-Allow-Methods', 'POST'); 
-  request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  request.setRequestHeader('Content-Type', 'multipart/form-data');
   request.setRequestHeader('Authorization', 'KakaoAK 687ea12e4ef2be02334d085696877d60');
   
   //request.send('image_url='+ encodeURI('https://jooyesle.github.io/assets/people.jpg'));
@@ -81,14 +81,12 @@ function mousePressed() {
     //req.setRequestHeader('Access-Control-Allow-Methods', 'POST'); 
   
     capture.loadPixels();
-    //req.send('image='+ capture.canvas.toDataURL("image/png").split(';base64,')[1]);
+    req.send('image='+ capture.canvas.toDataURL("image/png").split(';base64,')[1]);
     //req.send('image=iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==');
     
     //req.send('image='+btoa(capture.canvas.toDataURL("image/png").split(';base64,')[1]));
-    
-    //console.log(atob(capture.canvas.toDataURL("image/png").split(';base64,')[1]));
   
-    req.send('image='+encodeURIComponent('https://www.w3schools.com/w3css/img_snowtops.jpg'));
+    //req.send('image='+encodeURIComponent('https://www.w3schools.com/w3css/img_snowtops.jpg'));
   
     req.onload = function() {
     console.log(req.response);
