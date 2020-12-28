@@ -165,5 +165,7 @@ function keyPressed(){
       if(key == 'r'  && step1==step2){
         showVideo = true;
         print("video on");
+        step1 = false;
+        step2 = false;
       }
 }
