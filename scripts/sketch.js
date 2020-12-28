@@ -130,7 +130,7 @@ function mousePressed() {
                 "Authorization",
                 "KakaoAK 687ea12e4ef2be02334d085696877d60"
             );
-
+        let result = JSON.parse(imageHostingRequest.response);
         request2.send("image_url=" + encodeURI(result.data.url));
 
         request2.onload = function () {
