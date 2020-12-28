@@ -161,7 +161,7 @@ function mousePressed() {
 }
 
 function keyPressed(){
-      if(key == 'r'  && step1==step2){
+      if(key == 'r'  && sw2 == false){
         showVideo = true;
         print("video on");
         step1 = false;
