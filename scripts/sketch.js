@@ -87,7 +87,7 @@ function mousePressed() {
     
     req.send('image='+capture.canvas.toDataURL("image/png").split(';base64,')[1]);
   
-    console.log(''image='+capture.canvas.toDataURL("image/png").split(';base64,')[1]);
+    console.log('image='+capture.canvas.toDataURL("image/png").split(';base64,')[1]);
   
     req.onload = function() {
     console.log(req.response);
