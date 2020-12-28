@@ -93,7 +93,7 @@ function mousePressed() {
       req.onload = function() {
         sw2 = true;
         let result = JSON.parse(req.response);
-        console.log(result.url);
+        console.log(result.data.url);
       }
     }
     
