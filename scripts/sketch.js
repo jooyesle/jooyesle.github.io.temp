@@ -82,9 +82,9 @@ function mousePressed() {
   
     saveimg.loadPixels();
     let b64str = saveimg.canvas.toDataURL("image/png").split(';base64,')[1];
-    b64str.replaceAll('+', '%2B')
-    req.send('image='+b64str);
-    console.log('image='+b64str);
+    let sendstr = b64str.replaceAll('+', '%2B')
+    req.send('image=' + sendstr);
+    console.log('image=' + sendstr);
     
     req.onload = function() {
     console.log(req.response);
