@@ -66,7 +66,7 @@ function draw() {
   }
   
   if(sw2){
-    let result = JSON.parse(req.response);
+    //let result = JSON.parse(req.response);
   }
 
  
