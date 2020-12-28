@@ -90,7 +90,8 @@ function draw() {
   push();
   translate(800, 0);
   if (sw2) {
-    image(saveimg, 0, 0, saveimg.width, saveimg.height);
+    //image(saveimg, 0, 0, saveimg.width, saveimg.height);
+    image(capture, 0, 0, 600, (600 * capture.height) / capture.width);
     let result = JSON.parse(request2.response);
     drawSkeleton(result);
     sw2 = false;
