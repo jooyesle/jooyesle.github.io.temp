@@ -1,17 +1,20 @@
-let img;
-let capture;
-let saveimg;
-let request1 = new XMLHttpRequest();
-let request2 = new XMLHttpRequest();
-let sw1 = false;
-let sw2 = false;
+let img; // static image (1)
+let capture; // camera capture
+let saveimg; // saved image from camera (2)
+
+let request1 = new XMLHttpRequest(); // (1)
+let request2 = new XMLHttpRequest(); // (2)
+let done1 = false; // (1)
+let done2 = false; // (2)
+let step1 = false; // step1 for (2)
+let step2 = false; // step2 for (2)
+
 let showVideo = true;
 let kakao_url = "https://cv-api.kakaobrain.com/pose";
-let step1 = false;
-let step2 = false;
 
 function setup() {
   createCanvas(1500, 1500);
+
   img = loadImage("../assets/friends.jpeg");
 
   capture = createCapture(VIDEO);
@@ -75,38 +78,39 @@ function preload() {
   );
 
   request1.onload = function () {
-    sw1 = true;
+    done1 = true;
   };
 }
 
 function draw() {
   /* static photo friends.jpeg*/
-  if (sw1) {
+  if (done1) {
     image(img, 0, 0);
     let result = JSON.parse(request1.response);
     drawSkeleton(result);
-    sw1 = false;
+    done1 = false;
   }
 
   /* from camera */
   push();
   translate(800, 0);
   // instructions
-  fill(255, 255, 255, 0);
-  rect(0, 0, 500, 150, 20, 20, 20, 20);
+  fill(77, 240, 156, 50);
+  noStroke();
+  rect(0, 0, 400, 70, 20, 20, 20, 20);
   translate(0, 30);
   fill(0, 0, 0);
+  stroke(200);
   textSize(32);
-  text(" * left click to take a photo", 0, 0);
-  text(" * press 'r' to reset", 0, 30);
+  text(" left click to take a photo", 0, 0);
+  text(" press 'r' to reset", 0, 30);
   translate(0, 60);
   // print camera
-  if (sw2) {
+  if (done2) {
     image(saveimg, 0, 0, saveimg.width, saveimg.height);
-    //image(capture, 0, 0, 600, (600 * capture.height) / capture.width);
     let result = JSON.parse(request2.response);
     drawSkeleton(result);
-    sw2 = false;
+    done2 = false;
     step2 = true;
   } else if (showVideo) {
     image(capture, 0, 0, 600, (600 * capture.height) / capture.width);
@@ -119,7 +123,6 @@ function draw() {
   fill(255, 0, 0);
   if (step2) fill(0, 255, 0);
   ellipse(0, 50, 20, 20);
-
   translate(30, 0);
   fill(0, 0, 0);
   text("step1) photo --> image storage(imgbb)", 0, 0);
@@ -128,7 +131,7 @@ function draw() {
 }
 
 function mousePressed() {
-  if (showVideo == true && mouseButton == LEFT && sw2 == false) {
+  if (mouseButton == LEFT && done2 == false) {
     showVideo = false;
     saveimg = capture.get(0, 0, 600, (600 * capture.height) / capture.width);
 
@@ -170,16 +173,15 @@ function mousePressed() {
       request2.send("image_url=" + encodeURI(result.data.url));
 
       request2.onload = function () {
-        sw2 = true;
+        done2 = true;
       };
     };
   }
 }
 
 function keyPressed() {
-  if (key == "r" && sw2 == false) {
+  if (key == "r" && done2 == false) {
     showVideo = true;
-    print("video on");
     step1 = false;
     step2 = false;
   }
