@@ -90,11 +90,12 @@ function draw() {
 
   /* from camera */
   push();
+  translate(800, 0);
   fill(0, 0, 0);
   textSize(32);
   text(" * left click to take a photo", 0, 0);
   text(" * press 'r' to reset", 0, 30);
-  translate(800, 60);
+  translate(0, 60);
   if (sw2) {
     image(saveimg, 0, 0, saveimg.width, saveimg.height);
     //image(capture, 0, 0, 600, (600 * capture.height) / capture.width);
