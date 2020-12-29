@@ -95,12 +95,11 @@ function draw() {
   push();
   translate(800, 0);
   // instructions
-  fill(77, 240, 156, 50);
+  fill(255, 0, 255, 50);
   noStroke();
   rect(0, 0, 400, 70, 20, 20, 20, 20);
   translate(0, 30);
   fill(0, 0, 0);
-  stroke(200);
   textSize(32);
   text(" left click to take a photo", 0, 0);
   text(" press 'r' to reset", 0, 30);
