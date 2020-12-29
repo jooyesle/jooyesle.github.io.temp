@@ -41,7 +41,7 @@ function drawSkeleton(result) {
     [15, 13],
     [16, 14],
   ];
-  stroke(255);
+  stroke(0);
   for (let key in result) {
     fill(random(255), random(255), random(255));
     let arr = Object.values(result[key].keypoints);
@@ -125,7 +125,7 @@ function draw() {
   fill(255, 0, 0);
   if (step2) fill(0, 255, 0);
   ellipse(0, 50, 20, 20);
-  translate(20, 0);
+  translate(20, -10);
   fill(0, 0, 0);
   text("step1) photo --> image storage(imgbb)", 0, 0);
   text("step2) image storage --> Kakao sdk", 0, 50);
