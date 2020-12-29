@@ -116,6 +116,7 @@ function draw() {
   ellipse(0, 50, 20, 20);
   translate(20, 10);
   fill(0, 0, 0);
+  textSize(32);
   text("step1) photo --> image storage(imgbb)", 0, 0);
   text("step2) image storage --> Kakao sdk", 0, 50);
   pop();
