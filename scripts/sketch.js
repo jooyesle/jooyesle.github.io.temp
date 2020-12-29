@@ -173,6 +173,7 @@ function mousePressed() {
 function keyPressed() {
   if (key == "r" && done2 == false) {
     showVideo = true;
+    capture = createCapture(VIDEO); // fixes freezing problem?
     step1 = false;
     step2 = false;
   }
