@@ -41,6 +41,7 @@ function drawSkeleton(result) {
     [15, 13],
     [16, 14],
   ];
+  stroke(255);
   for (let key in result) {
     fill(random(255), random(255), random(255));
     let arr = Object.values(result[key].keypoints);
