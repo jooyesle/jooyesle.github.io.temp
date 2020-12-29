@@ -91,6 +91,8 @@ function draw() {
   /* from camera */
   push();
   translate(800, 30);
+  fill(255, 255, 255, 0);
+  rect(0, 0, 200, 60, 20, 20, 20, 20);
   fill(0, 0, 0);
   textSize(32);
   text(" * left click to take a photo", 0, 0);
