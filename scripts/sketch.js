@@ -95,18 +95,6 @@ function draw() {
   /* from camera */
   push();
   translate(800, 0);
-  // instructions
-  noStroke();
-  fill(255, 255, 255, 1.0);
-  rect(0, 0, 600, 70, 20, 20, 20, 20);
-  fill(255, 0, 255, 0.5);
-  rect(0, 0, 600, 70, 20, 20, 20, 20);
-  translate(0, 30);
-  fill(0, 0, 0);
-  textSize(32);
-  text(" left click to take a photo", 0, 0);
-  text(" press 'r' to reset", 0, 30);
-  translate(0, 60);
   // print camera
   if (done2) {
     image(saveimg, 0, 0, saveimg.width, saveimg.height);
@@ -119,6 +107,7 @@ function draw() {
   }
   // show process
   translate(0, 500);
+  noStroke();
   fill(255, 0, 0);
   if (step1) fill(0, 255, 0);
   ellipse(0, 0, 20, 20);
