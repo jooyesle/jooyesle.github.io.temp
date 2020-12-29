@@ -95,7 +95,7 @@ function draw() {
   push();
   translate(800, 0);
   // instructions
-  fill(255, 0, 255, 10);
+  fill(255, 0, 255, 0.5);
   noStroke();
   rect(0, 0, 600, 70, 20, 20, 20, 20);
   translate(0, 30);
