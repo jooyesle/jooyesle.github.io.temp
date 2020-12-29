@@ -90,14 +90,17 @@ function draw() {
 
   /* from camera */
   push();
-  translate(800, 30);
+  translate(800, 0);
+  // instructions
   fill(255, 255, 255, 0);
-  rect(0, 0, 200, 60, 20, 20, 20, 20);
+  rect(0, 0, 500, 150, 20, 20, 20, 20);
+  translate(0, 30);
   fill(0, 0, 0);
   textSize(32);
   text(" * left click to take a photo", 0, 0);
   text(" * press 'r' to reset", 0, 30);
   translate(0, 60);
+  // print camera
   if (sw2) {
     image(saveimg, 0, 0, saveimg.width, saveimg.height);
     //image(capture, 0, 0, 600, (600 * capture.height) / capture.width);
@@ -108,7 +111,7 @@ function draw() {
   } else if (showVideo) {
     image(capture, 0, 0, 600, (600 * capture.height) / capture.width);
   }
-
+  // show process
   translate(0, 500);
   fill(255, 0, 0);
   if (step1) fill(0, 255, 0);
