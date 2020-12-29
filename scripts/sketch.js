@@ -80,6 +80,7 @@ function preload() {
 }
 
 function draw() {
+  /* static photo friends.jpeg*/
   if (sw1) {
     image(img, 0, 0);
     let result = JSON.parse(request1.response);
@@ -87,8 +88,13 @@ function draw() {
     sw1 = false;
   }
 
+  /* from camera */
   push();
-  translate(800, 0);
+  fill(0, 0, 0);
+  textSize(32);
+  text(" * left click to take a photo", 0, 0);
+  text(" * press 'r' to reset", 0, 30);
+  translate(800, 60);
   if (sw2) {
     image(saveimg, 0, 0, saveimg.width, saveimg.height);
     //image(capture, 0, 0, 600, (600 * capture.height) / capture.width);
@@ -99,73 +105,76 @@ function draw() {
   } else if (showVideo) {
     image(capture, 0, 0, 600, (600 * capture.height) / capture.width);
   }
-  
+
   translate(0, 500);
   fill(255, 0, 0);
-  if(step1)
-    fill(0, 255, 0);
+  if (step1) fill(0, 255, 0);
   ellipse(0, 0, 20, 20);
   fill(255, 0, 0);
-  if(step2)
-     fill(0, 255, 0);
+  if (step2) fill(0, 255, 0);
   ellipse(0, 50, 20, 20);
-  
+
   translate(30, 0);
   fill(0, 0, 0);
-  textSize(32);
-  text('step1) photo --> image storage(imgbb)', 0, 0);
-  text('step2) image storage --> Kakao sdk', 0, 50);
+  text("step1) photo --> image storage(imgbb)", 0, 0);
+  text("step2) image storage --> Kakao sdk", 0, 50);
   pop();
 }
 
 function mousePressed() {
-    if (showVideo == true && mouseButton == LEFT && sw2 == false) {
-        showVideo = false;
-        saveimg = capture.get(0, 0, 600, (600 * capture.height) / capture.width);
+  if (showVideo == true && mouseButton == LEFT && sw2 == false) {
+    showVideo = false;
+    saveimg = capture.get(0, 0, 600, (600 * capture.height) / capture.width);
 
-        let imageHostingRequest = new XMLHttpRequest();
-        imageHostingRequest.open(
-        "POST",
-        "https://api.imgbb.com/1/upload?expiration=3600&key=15c781598b3e34982799db6f86a3819f",
-        true
-        );
-        imageHostingRequest.setRequestHeader("Access-Control-Allow-Origin", "*");
-        imageHostingRequest.setRequestHeader("Access-Control-Allow-Methods", "POST");
-        imageHostingRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    let imageHostingRequest = new XMLHttpRequest();
+    imageHostingRequest.open(
+      "POST",
+      "https://api.imgbb.com/1/upload?expiration=3600&key=15c781598b3e34982799db6f86a3819f",
+      true
+    );
+    imageHostingRequest.setRequestHeader("Access-Control-Allow-Origin", "*");
+    imageHostingRequest.setRequestHeader(
+      "Access-Control-Allow-Methods",
+      "POST"
+    );
+    imageHostingRequest.setRequestHeader(
+      "Content-Type",
+      "application/x-www-form-urlencoded"
+    );
 
-        saveimg.loadPixels();
-        let b64str = saveimg.canvas.toDataURL("image/png").split(";base64,")[1];
-        let sendstr = b64str.replaceAll("+", "%2B");
-        imageHostingRequest.send("image=" + sendstr);
+    saveimg.loadPixels();
+    let b64str = saveimg.canvas.toDataURL("image/png").split(";base64,")[1];
+    let sendstr = b64str.replaceAll("+", "%2B");
+    imageHostingRequest.send("image=" + sendstr);
 
-        imageHostingRequest.onload = function () {
-            step1 = true;
-            request2.open("POST", kakao_url, true);
-            request2.setRequestHeader("Access-Control-Allow-Origin", "*");
-            request2.setRequestHeader("Access-Control-Allow-Methods", "POST");
-            request2.setRequestHeader(
-                "Content-Type",
-                "application/x-www-form-urlencoded"
-            );
-            request2.setRequestHeader(
-                "Authorization",
-                "KakaoAK 687ea12e4ef2be02334d085696877d60"
-            );
-        let result = JSON.parse(imageHostingRequest.response);
-        request2.send("image_url=" + encodeURI(result.data.url));
+    imageHostingRequest.onload = function () {
+      step1 = true;
+      request2.open("POST", kakao_url, true);
+      request2.setRequestHeader("Access-Control-Allow-Origin", "*");
+      request2.setRequestHeader("Access-Control-Allow-Methods", "POST");
+      request2.setRequestHeader(
+        "Content-Type",
+        "application/x-www-form-urlencoded"
+      );
+      request2.setRequestHeader(
+        "Authorization",
+        "KakaoAK 687ea12e4ef2be02334d085696877d60"
+      );
+      let result = JSON.parse(imageHostingRequest.response);
+      request2.send("image_url=" + encodeURI(result.data.url));
 
-        request2.onload = function () {
-            sw2 = true;
-        };
-        };
-    }
+      request2.onload = function () {
+        sw2 = true;
+      };
+    };
+  }
 }
 
-function keyPressed(){
-      if(key == 'r'  && sw2 == false){
-        showVideo = true;
-        print("video on");
-        step1 = false;
-        step2 = false;
-      }
+function keyPressed() {
+  if (key == "r" && sw2 == false) {
+    showVideo = true;
+    print("video on");
+    step1 = false;
+    step2 = false;
+  }
 }
