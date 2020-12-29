@@ -95,9 +95,10 @@ function draw() {
   push();
   translate(800, 0);
   // instructions
-  fill(255, 255, 255, 1.0);
-  fill(255, 0, 255, 0.5);
   noStroke();
+  fill(255, 255, 255, 1.0);
+  rect(0, 0, 600, 70, 20, 20, 20, 20);
+  fill(255, 0, 255, 0.5);
   rect(0, 0, 600, 70, 20, 20, 20, 20);
   translate(0, 30);
   fill(0, 0, 0);
@@ -123,7 +124,7 @@ function draw() {
   fill(255, 0, 0);
   if (step2) fill(0, 255, 0);
   ellipse(0, 50, 20, 20);
-  translate(30, 0);
+  translate(20, 0);
   fill(0, 0, 0);
   text("step1) photo --> image storage(imgbb)", 0, 0);
   text("step2) image storage --> Kakao sdk", 0, 50);
