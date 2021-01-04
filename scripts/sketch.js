@@ -15,10 +15,10 @@ let kakao_url = "https://cv-api.kakaobrain.com/pose";
 function setup() {
   createCanvas(1500, 1500);
 
-  img = loadImage("../assets/friends.jpeg");
+  //img = loadImage("../assets/friends.jpeg");
 
-  capture = createCapture(VIDEO);
-  capture.hide();
+  //capture = createCapture(VIDEO);
+  //capture.hide();
 }
 
 function drawSkeleton(result) {
@@ -86,7 +86,7 @@ function preload() {
 function draw() {
   /* static photo friends.jpeg*/
   if (done1) {
-    image(img, 0, 0);
+    //image(img, 0, 0);
     let result = JSON.parse(request1.response);
     drawSkeleton(result);
     done1 = false;
@@ -97,13 +97,13 @@ function draw() {
   translate(800, 0);
   // print camera
   if (done2) {
-    image(saveimg, 0, 0, saveimg.width, saveimg.height);
+    //image(saveimg, 0, 0, saveimg.width, saveimg.height);
     let result = JSON.parse(request2.response);
     drawSkeleton(result);
     done2 = false;
     step2 = true;
   } else if (showVideo) {
-    image(capture, 0, 0, 600, (600 * capture.height) / capture.width);
+    //image(capture, 0, 0, 600, (600 * capture.height) / capture.width);
   }
   // show process
   translate(0, 500);
@@ -174,7 +174,7 @@ function mousePressed() {
 function keyPressed() {
   if (key == "r" && done2 == false) {
     showVideo = true;
-    capture = createCapture(VIDEO); // fixes freezing problem?
+    //capture = createCapture(VIDEO); // fixes freezing problem?
     step1 = false;
     step2 = false;
   }
