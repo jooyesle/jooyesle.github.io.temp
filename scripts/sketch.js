@@ -13,6 +13,7 @@ let showVideo = true;
 let kakao_url = "https://cv-api.kakaobrain.com/pose";
 
 function setup() {
+  frameRate(1);
   createCanvas(1500, 1500);
 
   img = loadImage("../assets/friends.jpeg");
