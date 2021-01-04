@@ -20,10 +20,6 @@ function setup() {
 
   capture = createCapture(VIDEO);
   capture.hide();
-  
-  let a="byebyebye";
-  a = a.replace(/bye/g,"hi");
-  alert(a);
 }
 
 function drawSkeleton(result) {
@@ -151,7 +147,9 @@ function mousePressed() {
 
     saveimg.loadPixels();
     let b64str = saveimg.canvas.toDataURL("image/png").split(";base64,")[1];
-    let sendstr = b64str.replaceAll("+", "%2B");
+    //let sendstr = b64str.replaceAll("+", "%2B");
+    let sendstr = b64str.replace(/+/, "%2B");
+    
     imageHostingRequest.send("image=" + sendstr);
 
     imageHostingRequest.onload = function () {
