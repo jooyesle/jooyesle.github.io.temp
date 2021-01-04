@@ -85,26 +85,26 @@ function preload() {
 
 function draw() {
   /* static photo friends.jpeg*/
-  if (done1) {
-    //image(img, 0, 0);
+  /*if (done1) {
+    image(img, 0, 0);
     let result = JSON.parse(request1.response);
     drawSkeleton(result);
     done1 = false;
-  }
+  }*/
 
   /* from camera */
   push();
   translate(800, 0);
   // print camera
-  if (done2) {
-    //image(saveimg, 0, 0, saveimg.width, saveimg.height);
+  /*if (done2) {
+    image(saveimg, 0, 0, saveimg.width, saveimg.height);
     let result = JSON.parse(request2.response);
     drawSkeleton(result);
     done2 = false;
     step2 = true;
   } else if (showVideo) {
-    //image(capture, 0, 0, 600, (600 * capture.height) / capture.width);
-  }
+    image(capture, 0, 0, 600, (600 * capture.height) / capture.width);
+  }*/
   // show process
   translate(0, 500);
   noStroke();
@@ -171,11 +171,11 @@ function draw() {
   }
 }*/
 
-function keyPressed() {
+/*function keyPressed() {
   if (key == "r" && done2 == false) {
     showVideo = true;
     capture = createCapture(VIDEO); // fixes freezing problem?
     step1 = false;
     step2 = false;
   }
-}
+}*/
