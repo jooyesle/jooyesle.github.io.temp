@@ -124,7 +124,7 @@ function draw() {
   noLoop();
 }
 
-/*function mousePressed() {
+function mousePressed() {
   if (mouseButton == LEFT && done2 == false) {
     showVideo = false;
     saveimg = capture.get(0, 0, 600, (600 * capture.height) / capture.width);
@@ -180,4 +180,4 @@ function keyPressed() {
     step1 = false;
     step2 = false;
   }
-}*/
+}
