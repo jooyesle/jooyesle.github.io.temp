@@ -10,8 +10,8 @@ function setup() {
 }
 
 function draw() {
-  //background(200);
-  image(img, 0, 0); 
+  background(200);
+  //image(img, 0, 0); 
   stroke(50);
   ellipse(x, y, 24, 24);
 
