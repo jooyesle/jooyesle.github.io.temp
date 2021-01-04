@@ -3,12 +3,13 @@ let x, y;
 
 function setup() {
   createCanvas(720, 400);
-  background(200);
+  
   x = width / 2;
   y = height;
 }
 
 function draw() {
+  background(200);
   stroke(50);
   ellipse(x, y, 24, 24);
 
