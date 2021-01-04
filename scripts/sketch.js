@@ -147,7 +147,7 @@ function mousePressed() {
     saveimg.loadPixels();
     let b64str = saveimg.canvas.toDataURL("image/png").split(";base64,")[1];
     //let sendstr = b64str.replaceAll("+", "%2B");
-    let sendstr = b64str.split("+").join("%2B");
+    let sendstr = b64str.replace(/\+/g, "%2B");
     
     imageHostingRequest.send("image=" + sendstr);
 
