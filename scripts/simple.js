@@ -1,15 +1,16 @@
 
 let x, y;
-
+let img;
 function setup() {
-  createCanvas(720, 400);
-  
+  createCanvas(1000, 1000);
+  img = loadImage("../assets/friends.jpeg");
   x = width / 2;
   y = height;
 }
 
 function draw() {
-  background(200);
+  //background(200);
+  image(img, 0, 0); 
   stroke(50);
   ellipse(x, y, 24, 24);
 
