@@ -79,7 +79,7 @@ function draw() {
   if (done1) {
     let result = JSON.parse(request1.response);
     drawSkeleton(result);
-    done1 = false;
+    noLoop();
   }
 
 }
