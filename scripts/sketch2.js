@@ -17,8 +17,8 @@ function setup() {
 
   img = loadImage("../assets/friends.jpeg");
 
-  capture = createCapture(VIDEO);
-  capture.hide();
+  //capture = createCapture(VIDEO);
+  //capture.hide();
 }
 
 function drawSkeleton(result) {
