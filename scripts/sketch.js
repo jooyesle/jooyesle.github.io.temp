@@ -20,6 +20,10 @@ function setup() {
 
   capture = createCapture(VIDEO);
   capture.hide();
+  
+  let a="::::::";
+  a = a.replace(/:/g,"hi");
+  alert(a);
 }
 
 function drawSkeleton(result) {
