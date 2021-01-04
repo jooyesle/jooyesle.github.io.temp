@@ -21,5 +21,6 @@ function draw() {
   if (y < 0) {
     y = height;
   }
+  noLoop();
 }
 
