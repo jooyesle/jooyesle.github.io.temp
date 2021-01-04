@@ -16,6 +16,7 @@ function draw() {
   ellipse(x, y, 24, 24);
 
   x = x + 1;
+  x %= 720;
   y = y - 1;
   
   if (y < 0) {
