@@ -21,8 +21,8 @@ function setup() {
   capture = createCapture(VIDEO);
   capture.hide();
   
-  let a="::::::";
-  a = a.replace(/:/g,"hi");
+  let a="byebyebye";
+  a = a.replace(/bye/g,"hi");
   alert(a);
 }
 
