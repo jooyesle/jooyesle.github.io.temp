@@ -17,8 +17,8 @@ function setup() {
 
   img = loadImage("../assets/friends.jpeg");
 
-  //capture = createCapture(VIDEO);
-  //capture.hide();
+  capture = createCapture(VIDEO);
+  capture.hide();
 }
 
 function drawSkeleton(result) {
@@ -85,18 +85,18 @@ function preload() {
 
 function draw() {
   /* static photo friends.jpeg*/
-  /*if (done1) {
+  if (done1) {
     image(img, 0, 0);
     let result = JSON.parse(request1.response);
     drawSkeleton(result);
     done1 = false;
-  }*/
+  }
 
   /* from camera */
   push();
   translate(800, 0);
   // print camera
-  /*if (done2) {
+  if (done2) {
     image(saveimg, 0, 0, saveimg.width, saveimg.height);
     let result = JSON.parse(request2.response);
     drawSkeleton(result);
@@ -104,7 +104,7 @@ function draw() {
     step2 = true;
   } else if (showVideo) {
     image(capture, 0, 0, 600, (600 * capture.height) / capture.width);
-  }*/
+  }
   // show process
   translate(0, 500);
   noStroke();
@@ -120,9 +120,11 @@ function draw() {
   text("step1) photo --> image storage(imgbb)", 0, 0);
   text("step2) image storage --> Kakao sdk", 0, 50);
   pop();
+  
+  noLoop();
 }
 
-/*function mousePressed() {
+function mousePressed() {
   if (mouseButton == LEFT && done2 == false) {
     showVideo = false;
     saveimg = capture.get(0, 0, 600, (600 * capture.height) / capture.width);
@@ -169,13 +171,13 @@ function draw() {
       };
     };
   }
-}*/
+}
 
-/*function keyPressed() {
+function keyPressed() {
   if (key == "r" && done2 == false) {
     showVideo = true;
     capture = createCapture(VIDEO); // fixes freezing problem?
     step1 = false;
     step2 = false;
   }
-}*/
+}
