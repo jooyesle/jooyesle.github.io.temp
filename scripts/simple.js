@@ -12,7 +12,6 @@ function draw() {
   background(200);
   
   stroke(50);
-  fill(100);
   ellipse(x, y, 24, 24);
 
   x = x + 1;
