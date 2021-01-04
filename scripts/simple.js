@@ -15,7 +15,7 @@ function draw() {
   fill(100);
   ellipse(x, y, 24, 24);
 
-  x = x + random(-1, 1);
+  x = x + 1;
   y = y - 1;
   
   if (y < 0) {
