@@ -2,7 +2,7 @@
 let x, y;
 let img;
 function setup() {
-  createCanvas(1000, 1000);
+  createCanvas(500, 500);
   frameRate(5);
   img = loadImage("../assets/friends.jpeg");
   x = width / 2;
