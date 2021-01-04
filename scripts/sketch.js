@@ -17,8 +17,8 @@ function setup() {
 
   img = loadImage("../assets/friends.jpeg");
 
-  //capture = createCapture(VIDEO);
-  //capture.hide();
+  capture = createCapture(VIDEO);
+  capture.hide();
 }
 
 function drawSkeleton(result) {
@@ -93,7 +93,7 @@ function draw() {
   }
 
   /* from camera */
-  /*push();
+  push();
   translate(800, 0);
   // print camera
   if (done2) {
@@ -119,11 +119,11 @@ function draw() {
   textSize(32);
   text("step1) photo --> image storage(imgbb)", 0, 0);
   text("step2) image storage --> Kakao sdk", 0, 50);
-  pop();*/
+  pop();
 
 }
 
-/*function mousePressed() {
+function mousePressed() {
   if (mouseButton == LEFT && done2 == false) {
     showVideo = false;
     saveimg = capture.get(0, 0, 600, (600 * capture.height) / capture.width);
@@ -179,4 +179,4 @@ function keyPressed() {
     step1 = false;
     step2 = false;
   }
-}*/
+}
