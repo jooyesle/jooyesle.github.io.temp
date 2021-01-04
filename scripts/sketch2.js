@@ -1,24 +1,14 @@
 let img; // static image (1)
-let capture; // camera capture
-let saveimg; // saved image from camera (2)
 
 let request1 = new XMLHttpRequest(); // (1)
-let request2 = new XMLHttpRequest(); // (2)
 let done1 = false; // (1)
-let done2 = false; // (2)
-let step1 = false; // step1 for (2)
-let step2 = false; // step2 for (2)
 
-let showVideo = true;
 let kakao_url = "https://cv-api.kakaobrain.com/pose";
 
 function setup() {
   createCanvas(1500, 1500);
 
   img = loadImage("../assets/friends.jpeg");
-
-  //capture = createCapture(VIDEO);
-  //capture.hide();
 }
 
 function drawSkeleton(result) {
@@ -85,98 +75,11 @@ function preload() {
 
 function draw() {
   /* static photo friends.jpeg*/
+  image(img, 0, 0);
   if (done1) {
-    image(img, 0, 0);
     let result = JSON.parse(request1.response);
     drawSkeleton(result);
     done1 = false;
   }
 
-  /* from camera */
-  /*push();
-  translate(800, 0);
-  // print camera
-  if (done2) {
-    image(saveimg, 0, 0, saveimg.width, saveimg.height);
-    let result = JSON.parse(request2.response);
-    drawSkeleton(result);
-    done2 = false;
-    step2 = true;
-  } else if (showVideo) {
-    image(capture, 0, 0, 600, (600 * capture.height) / capture.width);
-  }
-  // show process
-  translate(0, 500);
-  noStroke();
-  fill(255, 0, 0);
-  if (step1) fill(0, 255, 0);
-  ellipse(0, 0, 20, 20);
-  fill(255, 0, 0);
-  if (step2) fill(0, 255, 0);
-  ellipse(0, 50, 20, 20);
-  translate(20, 10);
-  fill(0, 0, 0);
-  textSize(32);
-  text("step1) photo --> image storage(imgbb)", 0, 0);
-  text("step2) image storage --> Kakao sdk", 0, 50);
-  pop();*/
-
 }
-
-/*function mousePressed() {
-  if (mouseButton == LEFT && done2 == false) {
-    showVideo = false;
-    saveimg = capture.get(0, 0, 600, (600 * capture.height) / capture.width);
-
-    let imageHostingRequest = new XMLHttpRequest();
-    imageHostingRequest.open(
-      "POST",
-      "https://api.imgbb.com/1/upload?expiration=3600&key=15c781598b3e34982799db6f86a3819f",
-      true
-    );
-    imageHostingRequest.setRequestHeader("Access-Control-Allow-Origin", "*");
-    imageHostingRequest.setRequestHeader(
-      "Access-Control-Allow-Methods",
-      "POST"
-    );
-    imageHostingRequest.setRequestHeader(
-      "Content-Type",
-      "application/x-www-form-urlencoded"
-    );
-
-    saveimg.loadPixels();
-    let b64str = saveimg.canvas.toDataURL("image/png").split(";base64,")[1];
-    let sendstr = b64str.replaceAll("+", "%2B");
-    imageHostingRequest.send("image=" + sendstr);
-
-    imageHostingRequest.onload = function () {
-      step1 = true;
-      request2.open("POST", kakao_url, true);
-      request2.setRequestHeader("Access-Control-Allow-Origin", "*");
-      request2.setRequestHeader("Access-Control-Allow-Methods", "POST");
-      request2.setRequestHeader(
-        "Content-Type",
-        "application/x-www-form-urlencoded"
-      );
-      request2.setRequestHeader(
-        "Authorization",
-        "KakaoAK 687ea12e4ef2be02334d085696877d60"
-      );
-      let result = JSON.parse(imageHostingRequest.response);
-      request2.send("image_url=" + encodeURI(result.data.url));
-
-      request2.onload = function () {
-        done2 = true;
-      };
-    };
-  }
-}
-
-function keyPressed() {
-  if (key == "r" && done2 == false) {
-    showVideo = true;
-    capture = createCapture(VIDEO); // fixes freezing problem?
-    step1 = false;
-    step2 = false;
-  }
-}*/
