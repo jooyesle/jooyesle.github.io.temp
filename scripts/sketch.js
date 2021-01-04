@@ -15,7 +15,7 @@ let kakao_url = "https://cv-api.kakaobrain.com/pose";
 function setup() {
   createCanvas(1500, 1500);
 
-  //img = loadImage("../assets/friends.jpeg");
+  img = loadImage("../assets/friends.jpeg");
 
   //capture = createCapture(VIDEO);
   //capture.hide();
@@ -122,7 +122,7 @@ function draw() {
   pop();
 }
 
-function mousePressed() {
+/*function mousePressed() {
   if (mouseButton == LEFT && done2 == false) {
     showVideo = false;
     saveimg = capture.get(0, 0, 600, (600 * capture.height) / capture.width);
@@ -169,12 +169,12 @@ function mousePressed() {
       };
     };
   }
-}
+}*/
 
 function keyPressed() {
   if (key == "r" && done2 == false) {
     showVideo = true;
-    //capture = createCapture(VIDEO); // fixes freezing problem?
+    capture = createCapture(VIDEO); // fixes freezing problem?
     step1 = false;
     step2 = false;
   }
