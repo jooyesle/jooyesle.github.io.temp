@@ -103,7 +103,7 @@ function draw() {
     done2 = false;
     step2 = true;
   } else if (showVideo) {
-    image(capture, 0, 0, 600, (600 * capture.height) / capture.width);
+    image(capture, 0, 0, capture.width, capture.height);
   }
   // show process
   translate(0, 500);
