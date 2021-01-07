@@ -94,7 +94,7 @@ function draw() {
 
   /* from camera */
   push();
-  translate(850, 0);
+  translate(750, 0);
   // print camera
   if (done2) {
     image(saveimg, 0, 0, saveimg.width, saveimg.height);
@@ -108,10 +108,11 @@ function draw() {
   // show process
   translate(0, 800);
   fill(0, 0, 0);
-  textSize(32);
-  text("To ignore CORS Policy in chrome, add the following @ properties>shortcut>target : <strong>--disable-web-security --user-data-dir=\"C:\chrome\"", 0, 0);
-  text("Left mouse click</strong> to take a photo. Press \'r\' to reset.", 0, 50);
-  translate(0, 80);
+  textSize(16);
+  textStyle(BOLD);
+  text("To ignore CORS Policy in chrome, add the following @ properties>shortcut>target :--disable-web-security --user-data-dir=\"C:\chrome\"", 0, 0);
+  text("Left mouse click to take a photo. Press \'r\' to reset.", 0, 30);
+  translate(0, 100);
   noStroke();
   fill(255, 0, 0);
   if (step1) fill(0, 255, 0);
@@ -121,6 +122,7 @@ function draw() {
   ellipse(0, 50, 20, 20);
   translate(20, 10);
   fill(0, 0, 0);
+  textStyle(NORMAL);
   text("step1) photo --> image storage(imgbb)", 0, 0);
   text("step2) image storage --> Kakao sdk", 0, 50);
   pop();
