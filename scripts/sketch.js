@@ -13,7 +13,7 @@ let showVideo = true;
 let kakao_url = "https://cv-api.kakaobrain.com/pose";
 
 function setup() {
-  createCanvas(1920, 1080);
+  createCanvas(1920-100, 1080-100);
 
   img = loadImage("../assets/friends.jpeg");
 
@@ -86,7 +86,7 @@ function preload() {
 function draw() {
   /* static photo friends.jpeg*/
   if (done1) {
-    image(img, 0, 0);
+    image(img, 0, 0, 600, 600*img.width/img.height);
     let result = JSON.parse(request1.response);
     drawSkeleton(result);
     done1 = false;
@@ -94,7 +94,7 @@ function draw() {
 
   /* from camera */
   push();
-  translate(770, 0);
+  translate(700, 0);
   // print camera
   if (done2) {
     image(saveimg, 0, 0, saveimg.width, saveimg.height);
@@ -109,6 +109,7 @@ function draw() {
   translate(0, 800);
   fill(0, 0, 0);
   textSize(20);
+  textStyle(NORMAL);
   text("To ignore CORS Policy in chrome, add the following @ properties>shortcut>target :--disable-web-security --user-data-dir=\"C:\chrome\"", 0, 0);
   text("Left mouse click to take a photo. Press \'r\' to reset.", 0, 30);
   translate(0, 100);
@@ -122,6 +123,7 @@ function draw() {
   translate(20, 10);
   fill(0, 0, 0);
   textStyle(BOLD);
+  textSize(32);
   text("step1) photo --> image storage(imgbb)", 0, 0);
   text("step2) image storage --> Kakao sdk", 0, 50);
   pop();
