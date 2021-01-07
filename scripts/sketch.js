@@ -94,7 +94,7 @@ function draw() {
 
   /* from camera */
   push();
-  translate(800, 0);
+  translate(700, 0);
   // print camera
   if (done2) {
     image(saveimg, 0, 0, saveimg.width, saveimg.height);
@@ -106,7 +106,7 @@ function draw() {
     image(capture, 0, 0, capture.width, capture.height);
   }
   // show process
-  translate(0, 500);
+  translate(0, 800);
   noStroke();
   fill(255, 0, 0);
   if (step1) fill(0, 255, 0);
