@@ -108,12 +108,12 @@ function draw() {
   // show process
   translate(0, 500);
   fill(0, 0, 0);
+  noStroke();
   textSize(20);
   text("To ignore CORS Policy in chrome, add the following @", 0, 0);
   text("properties>shortcut>target :--disable-web-security --user-data-dir=\"C:\chrome\"", 0, 30);
   text("Left mouse click to take a photo. Press \'r\' to reset.", 0, 60);
   translate(0, 100);
-  noStroke();
   fill(255, 0, 0);
   if (step1) fill(0, 255, 0);
   ellipse(0, 0, 20, 20);
