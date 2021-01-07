@@ -109,8 +109,6 @@ function draw() {
   translate(0, 500);
   fill(0, 0, 0);
   textSize(20);
-  strokeWeight(0);
-  textStyle(NORMAL);
   text("To ignore CORS Policy in chrome, add the following @", 0, 0);
   text("properties>shortcut>target :--disable-web-security --user-data-dir=\"C:\chrome\"", 0, 30);
   text("Left mouse click to take a photo. Press \'r\' to reset.", 0, 60);
@@ -124,7 +122,6 @@ function draw() {
   ellipse(0, 50, 20, 20);
   translate(20, 10);
   fill(0, 0, 0);
-  textStyle(BOLD);
   textSize(32);
   text("step1) photo --> image storage(imgbb)", 0, 0);
   text("step2) image storage --> Kakao sdk", 0, 50);
