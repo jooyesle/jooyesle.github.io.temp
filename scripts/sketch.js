@@ -109,7 +109,7 @@ function draw() {
   translate(0, 500);
   fill(0, 0, 0);
   textSize(20);
-  textStyle(NORMAL);
+  textStyle();
   text("To ignore CORS Policy in chrome, add the following @", 0, 0);
   text("properties>shortcut>target :--disable-web-security --user-data-dir=\"C:\chrome\"", 0, 30);
   text("Left mouse click to take a photo. Press \'r\' to reset.", 0, 60);
