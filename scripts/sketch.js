@@ -86,7 +86,7 @@ function preload() {
 function draw() {
   /* static photo friends.jpeg*/
   if (done1) {
-    image(img, 0, 0, 600, 600*img.width/img.height);
+    image(img, 0, 0);
     let result = JSON.parse(request1.response);
     drawSkeleton(result);
     done1 = false;
@@ -94,7 +94,7 @@ function draw() {
 
   /* from camera */
   push();
-  translate(700, 0);
+  translate(770, 0);
   // print camera
   if (done2) {
     image(saveimg, 0, 0, saveimg.width, saveimg.height);
@@ -103,15 +103,16 @@ function draw() {
     done2 = false;
     step2 = true;
   } else if (showVideo) {
-    image(capture, 0, 0, capture.width, capture.height);
+    image(capture, 0, 0,  600, 600 / capture.width * capture.height);
   }
   // show process
   translate(0, 800);
   fill(0, 0, 0);
   textSize(20);
   textStyle(NORMAL);
-  text("To ignore CORS Policy in chrome, add the following @ properties>shortcut>target :--disable-web-security --user-data-dir=\"C:\chrome\"", 0, 0);
-  text("Left mouse click to take a photo. Press \'r\' to reset.", 0, 30);
+  text("To ignore CORS Policy in chrome, add the following @", 0, 0);
+  text("properties>shortcut>target :--disable-web-security --user-data-dir=\"C:\chrome\"", 0, 30);
+  text("Left mouse click to take a photo. Press \'r\' to reset.", 0, 60);
   translate(0, 100);
   noStroke();
   fill(255, 0, 0);
@@ -133,7 +134,7 @@ function draw() {
 function mousePressed() {
   if (mouseButton == LEFT && done2 == false) {
     showVideo = false;
-    saveimg = capture.get(0, 0, capture.width, capture.height);
+    saveimg = capture.get(0, 0, 600, 600 / capture.width * capture.height);
 
     let imageHostingRequest = new XMLHttpRequest();
     imageHostingRequest.open(
