@@ -103,10 +103,10 @@ function draw() {
     done2 = false;
     step2 = true;
   } else if (showVideo) {
-    image(capture, 0, 0,  600, 600 / capture.width * capture.height);
+    image(capture, 0, 0,  800, 800 / capture.width * capture.height);
   }
   // show process
-  translate(0, 800);
+  translate(0, 500);
   fill(0, 0, 0);
   textSize(20);
   textStyle(NORMAL);
@@ -134,7 +134,8 @@ function draw() {
 function mousePressed() {
   if (mouseButton == LEFT && done2 == false) {
     showVideo = false;
-    saveimg = capture.get(0, 0, 600, 600 / capture.width * capture.height);
+    saveimg = capture.get(0, 0, capture.width, capture.height);
+    saveimg.resize(800, 800 / capture.width * capture.height);
 
     let imageHostingRequest = new XMLHttpRequest();
     imageHostingRequest.open(
